@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Stripe\Stripe;
-use Stripe\PaymentIntent;
-use Stripe\Customer;
 use Stripe\Charge;
+use Stripe\Customer;
+use Stripe\Stripe;
 
 class PurchaseController extends Controller
 {
@@ -17,11 +16,11 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        Stripe::setApiKey(env("STRIPE_SECRET"));
+        Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        return view('payments.index',[
-            'amount' => 2500,
-            'description' => "Buy my book"
+        return view('payments.index', [
+            'amount'      => 2500,
+            'description' => 'Buy my book'
         ]);
     }
 
@@ -46,7 +45,6 @@ class PurchaseController extends Controller
             'currency' => 'usd'
         ]);
 
-        return "All done";
-
+        return 'All done';
     }
 }
