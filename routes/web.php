@@ -13,4 +13,4 @@
 
 Route::get('/', 'PurchaseController@index');
 
-Route::post('/charge', 'PurchaseController@charge');
+Route::post('/checkout', 'PurchaseController@charge');
